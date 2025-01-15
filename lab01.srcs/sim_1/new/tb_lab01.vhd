@@ -75,44 +75,64 @@ begin
         assert(less = '1' and equal = '0' and greater = '0')report "test4 pass" severity note;
         wait for 10 ns; 
 
-        A <= "10";
+        A <= "01";
         B <= "00";
         assert(less = '0' and equal = '0' and greater = '1')report "test5 pass" severity note;
         wait for 10 ns;
-        
-        A <= "10";
+
+        A <= "01";
         B <= "01";
-        assert(less = '0' and equal = '0' and greater = '1')report "test6 pass" severity note;
+        assert(less = '0' and equal = '1' and greater = '0')report "test6 pass" severity note;
         wait for 10 ns;
 
-        A <= "10";
+        A <= "01";
         B <= "10";
-        assert(less = '0' and equal = '1' and greater = '0')report "test7 pass" severity note;
+        assert(less = '1' and equal = '0' and greater = '0')report "test7 pass" severity note;
+        wait for 10 ns;
+
+        A <= "01";
+        B <= "11";
+        assert(less = '1' and equal = '0' and greater = '0')report "test8 pass" severity note;
         wait for 10 ns;
 
         A <= "10";
-        B <= "11";
-        assert(less = '0' and equal = '0' and greater = '1')report "test8 pass" severity note;
-        wait for 10 ns;
-
-        A <= "11";
         B <= "00";
         assert(less = '0' and equal = '0' and greater = '1')report "test9 pass" severity note;
         wait for 10 ns;
         
-        A <= "11";
+        A <= "10";
         B <= "01";
         assert(less = '0' and equal = '0' and greater = '1')report "test10 pass" severity note;
+        wait for 10 ns;
+
+        A <= "10";
+        B <= "10";
+        assert(less = '0' and equal = '1' and greater = '0')report "test11 pass" severity note;
+        wait for 10 ns;
+
+        A <= "10";
+        B <= "11";
+        assert(less = '1' and equal = '0' and greater = '0')report "test12 pass" severity note;
+        wait for 10 ns;
+
+        A <= "11";
+        B <= "00";
+        assert(less = '0' and equal = '0' and greater = '1')report "test13 pass" severity note;
+        wait for 10 ns;
+        
+        A <= "11";
+        B <= "01";
+        assert(less = '0' and equal = '0' and greater = '1')report "test14 pass" severity note;
         wait for 10 ns;
         
         A <= "11";
         B <= "10";
-        assert(less = '0' and equal = '0' and greater = '1')report "test11 pass" severity note;
+        assert(less = '0' and equal = '0' and greater = '1')report "test15 pass" severity note;
         wait for 10 ns;
         
         A <= "11";
         B <= "11";
-        assert(less = '0' and equal = '1' and greater = '0')report "test12 pass" severity note;
+        assert(less = '0' and equal = '1' and greater = '0')report "test16 pass" severity note;
         wait for 10 ns;
 
         wait;
