@@ -54,56 +54,66 @@ begin
 
     stimuli : process
     begin
-        -- EDIT Adapt initialization as needed
+
         A <= "00";
         B <= "00";
         assert(less = '0' and equal = '1' and equal = '0')report "test1 pass" severity note;
+        wait for 10 ns;
 
-        -- EDIT Add stimuli here
         A <= "00";
+        B <= "01";
+        assert(less = '1' and equal = '0' and greater = '0')report "test2 pass" severity note;
+        wait for 10 ns;
+
+        A <= "00";
+        B <= "10";
+        assert(less = '1' and equal = '0' and greater = '0')report "test3 pass" severity note;
+        wait for 10 ns;
+
+        A <= "00";
+        B <= "11";
+        assert(less = '1' and equal = '0' and greater = '0')report "test4 pass" severity note;
+        wait for 10 ns; 
+
+        A <= "10";
         B <= "00";
+        assert(less = '0' and equal = '0' and greater = '1')report "test5 pass" severity note;
+        wait for 10 ns;
         
-        A <= "00";
+        A <= "10";
+        B <= "01";
+        assert(less = '0' and equal = '0' and greater = '1')report "test6 pass" severity note;
+        wait for 10 ns;
+
+        A <= "10";
+        B <= "10";
+        assert(less = '0' and equal = '1' and greater = '0')report "test7 pass" severity note;
+        wait for 10 ns;
+
+        A <= "10";
+        B <= "11";
+        assert(less = '0' and equal = '0' and greater = '1')report "test8 pass" severity note;
+        wait for 10 ns;
+
+        A <= "11";
         B <= "00";
+        assert(less = '0' and equal = '0' and greater = '1')report "test9 pass" severity note;
+        wait for 10 ns;
         
-        A <= "00";
-        B <= "00";
+        A <= "11";
+        B <= "01";
+        assert(less = '0' and equal = '0' and greater = '1')report "test10 pass" severity note;
+        wait for 10 ns;
         
-        A <= "00";
-        B <= "00";
+        A <= "11";
+        B <= "10";
+        assert(less = '0' and equal = '0' and greater = '1')report "test11 pass" severity note;
+        wait for 10 ns;
         
-        A <= "00";
-        B <= "00";
-        
-        A <= "00";
-        B <= "00";
-        
-        A <= "00";
-        B <= "00";
-        
-        A <= "00";
-        B <= "00";
-        
-        A <= "00";
-        B <= "00";
-        
-        A <= "00";
-        B <= "00";
-        
-        A <= "00";
-        B <= "00";
-        
-        A <= "00";
-        B <= "00";
-        
-        A <= "00";
-        B <= "00";
-        
-        A <= "00";
-        B <= "00";
-        
-        A <= "00";
-        B <= "00";
+        A <= "11";
+        B <= "11";
+        assert(less = '0' and equal = '1' and greater = '0')report "test12 pass" severity note;
+        wait for 10 ns;
 
         wait;
     end process;
