@@ -51,8 +51,8 @@ signal A0to1: std_logic := '0';
 signal A1to2: std_logic := '0';
 
 begin
-  A0: full_adder port map (A[0] => A, B[0] => B, Cin => Cin, Sum => Sum[0], Cout => A0to1);
-  A1: full_adder port map (A[1] => A, B[1] => B, Cin => Cin, Sum => Sum[1], Cout => A0to1);
-  A3: full_adder port map (A[0] => A, B[0] => B, Cin => Cin, Sum => Sum[0], Cout => A0to1);
+  A0: full_adder port map (A => A[0], B => B[0], Cin => Cin, Sum => Sum[0], Cout => A0to1);
+  A1: full_adder port map (A => A[1], B => B[1], Cin => A0to1, Sum => Sum[1], Cout => A1to2);
+  A3: full_adder port map (A => A[2], B => B[2], Cin => A1to2, Sum => Sum[2], Cout => Sum[3]);
 
 end Behavioral;
