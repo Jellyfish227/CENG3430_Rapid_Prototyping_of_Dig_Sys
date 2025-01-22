@@ -1,87 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1737523493">
-  <File Type="ROUTE-PWR" Name="full_adder_power_routed.rpt"/>
-  <File Type="PA-TCL" Name="full_adder.tcl"/>
-  <File Type="ROUTE-PWR-SUM" Name="full_adder_power_summary_routed.pb"/>
-  <File Type="REPORTS-TCL" Name="full_adder_reports.tcl"/>
-  <File Type="OPT-RQA-PB" Name="full_adder_rqa_opted.pb"/>
-  <File Type="BITSTR-MMI" Name="full_adder.mmi"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="full_adder_methodology_drc_opted.rpt"/>
-  <File Type="INIT-TIMING" Name="full_adder_timing_summary_init.rpt"/>
-  <File Type="OPT-TIMING" Name="full_adder_timing_summary_opted.rpt"/>
-  <File Type="OPT-DCP" Name="full_adder_opt.dcp"/>
-  <File Type="OPT-DRC" Name="full_adder_drc_opted.rpt"/>
-  <File Type="OPT-HWDEF" Name="full_adder.hwdef"/>
-  <File Type="PWROPT-DCP" Name="full_adder_pwropt.dcp"/>
-  <File Type="PWROPT-DRC" Name="full_adder_drc_pwropted.rpt"/>
-  <File Type="PWROPT-TIMING" Name="full_adder_timing_summary_pwropted.rpt"/>
-  <File Type="PLACE-DCP" Name="full_adder_placed.dcp"/>
-  <File Type="PLACE-IO" Name="full_adder_io_placed.rpt"/>
-  <File Type="PLACE-CLK" Name="full_adder_clock_utilization_placed.rpt"/>
-  <File Type="PLACE-UTIL" Name="full_adder_utilization_placed.rpt"/>
-  <File Type="PLACE-UTIL-PB" Name="full_adder_utilization_placed.pb"/>
-  <File Type="PLACE-CTRL" Name="full_adder_control_sets_placed.rpt"/>
-  <File Type="PLACE-SIMILARITY" Name="full_adder_incremental_reuse_placed.rpt"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="full_adder_incremental_reuse_pre_placed.rpt"/>
-  <File Type="BG-BIN" Name="full_adder.bin"/>
-  <File Type="PLACE-TIMING" Name="full_adder_timing_summary_placed.rpt"/>
-  <File Type="ROUTE-PWR-RPX" Name="full_adder_power_routed.rpx"/>
-  <File Type="PLACE-RQA-PB" Name="full_adder_rqa_placed.pb"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="full_adder_postplace_pwropt.dcp"/>
-  <File Type="BITSTR-MSK" Name="full_adder.msk"/>
-  <File Type="POSTPLACE-PWROPT-TIMING" Name="full_adder_timing_summary_postplace_pwropted.rpt"/>
-  <File Type="PHYSOPT-DCP" Name="full_adder_physopt.dcp"/>
-  <File Type="PHYSOPT-DRC" Name="full_adder_drc_physopted.rpt"/>
-  <File Type="BITSTR-RBT" Name="full_adder.rbt"/>
-  <File Type="PHYSOPT-TIMING" Name="full_adder_timing_summary_physopted.rpt"/>
-  <File Type="ROUTE-ERROR-DCP" Name="full_adder_routed_error.dcp"/>
-  <File Type="ROUTE-DCP" Name="full_adder_routed.dcp"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="full_adder_routed_bb.dcp"/>
-  <File Type="ROUTE-DRC" Name="full_adder_drc_routed.rpt"/>
-  <File Type="ROUTE-DRC-PB" Name="full_adder_drc_routed.pb"/>
-  <File Type="ROUTE-DRC-RPX" Name="full_adder_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="full_adder_methodology_drc_routed.rpt"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="full_adder_methodology_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="full_adder_methodology_drc_routed.pb"/>
-  <File Type="ROUTE-RQS-PB" Name="full_adder_rqs_routed.pb"/>
-  <File Type="ROUTE-STATUS" Name="full_adder_route_status.rpt"/>
-  <File Type="ROUTE-STATUS-PB" Name="full_adder_route_status.pb"/>
-  <File Type="ROUTE-TIMINGSUMMARY" Name="full_adder_timing_summary_routed.rpt"/>
-  <File Type="ROUTE-TIMING-PB" Name="full_adder_timing_summary_routed.pb"/>
-  <File Type="ROUTE-TIMING-RPX" Name="full_adder_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-SIMILARITY" Name="full_adder_incremental_reuse_routed.rpt"/>
-  <File Type="ROUTE-CLK" Name="full_adder_clock_utilization_routed.rpt"/>
-  <File Type="ROUTE-BUS-SKEW" Name="full_adder_bus_skew_routed.rpt"/>
-  <File Type="ROUTE-BUS-SKEW-PB" Name="full_adder_bus_skew_routed.pb"/>
-  <File Type="ROUTE-BUS-SKEW-RPX" Name="full_adder_bus_skew_routed.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-DCP" Name="full_adder_postroute_physopt.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="full_adder_postroute_physopt_bb.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="full_adder_timing_summary_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="full_adder_timing_summary_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="full_adder_timing_summary_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="full_adder_bus_skew_postroute_physopted.rpt"/>
-  <File Type="BG-BIT" Name="full_adder.bit"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="full_adder_bus_skew_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="full_adder_bus_skew_postroute_physopted.rpx"/>
-  <File Type="BITSTR-NKY" Name="full_adder.nky"/>
-  <File Type="BITSTR-BMM" Name="full_adder_bd.bmm"/>
-  <File Type="PDI-FILE" Name="full_adder.pdi"/>
-  <File Type="BOOT-PDI-FILE" Name="full_adder_boot.pdi"/>
-  <File Type="PL-PDI-FILE" Name="full_adder_pld.pdi"/>
-  <File Type="RCFI_FILE" Name="full_adder.rcfi"/>
-  <File Type="CFI_FILE" Name="full_adder.cfi"/>
-  <File Type="RNPI_FILE" Name="full_adder.rnpi"/>
-  <File Type="NPI_FILE" Name="full_adder.npi"/>
-  <File Type="RBD_FILE" Name="full_adder.rbd"/>
+<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1737527192">
+  <File Type="ROUTE-PWR" Name="lab02_power_routed.rpt"/>
+  <File Type="PA-TCL" Name="lab02.tcl"/>
+  <File Type="ROUTE-PWR-SUM" Name="lab02_power_summary_routed.pb"/>
+  <File Type="REPORTS-TCL" Name="lab02_reports.tcl"/>
+  <File Type="OPT-RQA-PB" Name="lab02_rqa_opted.pb"/>
+  <File Type="BITSTR-MMI" Name="lab02.mmi"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="lab02_methodology_drc_opted.rpt"/>
+  <File Type="INIT-TIMING" Name="lab02_timing_summary_init.rpt"/>
+  <File Type="OPT-TIMING" Name="lab02_timing_summary_opted.rpt"/>
+  <File Type="OPT-DCP" Name="lab02_opt.dcp"/>
+  <File Type="OPT-DRC" Name="lab02_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="lab02.hwdef"/>
+  <File Type="PWROPT-DCP" Name="lab02_pwropt.dcp"/>
+  <File Type="PWROPT-DRC" Name="lab02_drc_pwropted.rpt"/>
+  <File Type="PWROPT-TIMING" Name="lab02_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="lab02_placed.dcp"/>
+  <File Type="PLACE-IO" Name="lab02_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="lab02_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="lab02_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="lab02_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="lab02_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="lab02_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="lab02_incremental_reuse_pre_placed.rpt"/>
+  <File Type="BG-BIN" Name="lab02.bin"/>
+  <File Type="PLACE-TIMING" Name="lab02_timing_summary_placed.rpt"/>
+  <File Type="ROUTE-PWR-RPX" Name="lab02_power_routed.rpx"/>
+  <File Type="PLACE-RQA-PB" Name="lab02_rqa_placed.pb"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="lab02_postplace_pwropt.dcp"/>
+  <File Type="BITSTR-MSK" Name="lab02.msk"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="lab02_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="lab02_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="lab02_drc_physopted.rpt"/>
+  <File Type="BITSTR-RBT" Name="lab02.rbt"/>
+  <File Type="PHYSOPT-TIMING" Name="lab02_timing_summary_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="lab02_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="lab02_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="lab02_routed_bb.dcp"/>
+  <File Type="ROUTE-DRC" Name="lab02_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="lab02_drc_routed.pb"/>
+  <File Type="ROUTE-DRC-RPX" Name="lab02_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="lab02_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="lab02_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="lab02_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-RQS-PB" Name="lab02_rqs_routed.pb"/>
+  <File Type="ROUTE-STATUS" Name="lab02_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="lab02_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="lab02_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="lab02_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="lab02_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="lab02_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="lab02_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="lab02_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="lab02_bus_skew_routed.pb"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="lab02_bus_skew_routed.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="lab02_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="lab02_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="lab02_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="lab02_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="lab02_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="lab02_bus_skew_postroute_physopted.rpt"/>
+  <File Type="BG-BIT" Name="lab02.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="lab02_bus_skew_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="lab02_bus_skew_postroute_physopted.rpx"/>
+  <File Type="BITSTR-NKY" Name="lab02.nky"/>
+  <File Type="BITSTR-BMM" Name="lab02_bd.bmm"/>
+  <File Type="PDI-FILE" Name="lab02.pdi"/>
+  <File Type="BOOT-PDI-FILE" Name="lab02_boot.pdi"/>
+  <File Type="PL-PDI-FILE" Name="lab02_pld.pdi"/>
+  <File Type="RCFI_FILE" Name="lab02.rcfi"/>
+  <File Type="CFI_FILE" Name="lab02.cfi"/>
+  <File Type="RNPI_FILE" Name="lab02.rnpi"/>
+  <File Type="NPI_FILE" Name="lab02.npi"/>
+  <File Type="RBD_FILE" Name="lab02.rbd"/>
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
-  <File Type="BITSTR-LTX" Name="full_adder.ltx"/>
-  <File Type="BITSTR-SYSDEF" Name="full_adder.sysdef"/>
-  <File Type="BG-BGN" Name="full_adder.bgn"/>
-  <File Type="BG-DRC" Name="full_adder.drc"/>
-  <File Type="RDI-RDI" Name="full_adder.vdi"/>
+  <File Type="BITSTR-LTX" Name="lab02.ltx"/>
+  <File Type="BITSTR-SYSDEF" Name="lab02.sysdef"/>
+  <File Type="BG-BGN" Name="lab02.bgn"/>
+  <File Type="BG-DRC" Name="lab02.drc"/>
+  <File Type="RDI-RDI" Name="lab02.vdi"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
-  <File Type="ROUTE-RQS" Name="full_adder_routed.rqs"/>
-  <File Type="POSTROUTE-PHYSOPT-RQS" Name="full_adder_postroute_physopted.rqs"/>
+  <File Type="ROUTE-RQS" Name="lab02_routed.rqs"/>
+  <File Type="POSTROUTE-PHYSOPT-RQS" Name="lab02_postroute_physopted.rqs"/>
   <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-RQS-RPT" Name="postroute_physopt_report_qor_suggestions_0.rpt"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
@@ -92,9 +92,15 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/lab02.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="full_adder"/>
+      <Option Name="TopModule" Val="lab02"/>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>
@@ -112,6 +118,14 @@
   </FileSet>
   <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1" RelGenDir="$PGENDIR/utils_1">
     <Filter Type="Utils"/>
+    <File Path="$PSRCDIR/utils_1/imports/synth_1/full_adder.dcp">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedInSteps" Val="synth_1"/>
+        <Attr Name="AutoDcp" Val="1"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
