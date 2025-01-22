@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Company: CUHK CSE
+-- Engineer: Yu Ching Hei
 -- 
 -- Create Date: 22.01.2025 13:30:44
 -- Design Name: 
