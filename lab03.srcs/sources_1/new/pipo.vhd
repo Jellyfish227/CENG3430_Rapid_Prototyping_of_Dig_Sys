@@ -36,15 +36,11 @@ entity pipo is
     sel   : in      std_logic;
     clk   : in      std_logic;
     reset : in      std_logic;
-    Q     : buffer  std_logic_vector(6 downto 0)
+    Q     : buffer  std_logic_vector(7 downto 0)
   );
 end pipo;
 
 architecture arch_pipo of pipo is
-  signal sD0 : std_logic;
-  signal sD1 : std_logic;
-  signal sD2 : std_logic;
-  signal sD3 : std_logic;
 
   component D_FF is
     port (
@@ -55,87 +51,31 @@ architecture arch_pipo of pipo is
     );
   end component;
   
-process (all)
-begin
-  case sel is
-    when '1' => 
-      sD0   <= D(0);
-      sD1   <= D(1);
-      sD2   <= D(2);
-      sD3   <= D(3);
-    when others =>
-      sD0   <= '0';
-      sD1   <= Q(0);
-      sD2   <= Q(1);
-      sD3   <= Q(2);
-  end case;
-end process;
-  
+  signal Din : std_logic_vector(7 downto 0);
+  signal Qout: std_logic_vector(7 downto 0);
+
 begin
 
-  DFF0 : D_FF
-    port map (
-      D     => sD0,
-      clk   => clk,
-      reset => reset,
-      Q     => Q(0)
-    );
+  Din(0) <= D(0) when sel = '1' else '0';
+  Din(1) <= D(1) when sel = '1' else Qout(0);
+  Din(2) <= D(2) when sel = '1' else Qout(1);
+  Din(3) <= D(3) when sel = '1' else Qout(2);
+  Din(4) <= Qout(3);
+  Din(5) <= Qout(4);
+  Din(6) <= Qout(5);
+  Din(7) <= Qout(6);
 
-  DFF1 : D_FF
+ DFFGen: for i in 0 to 7 generate 
+  DFF : D_FF
     port map (
-      D     => sD1,
       clk   => clk,
       reset => reset,
-      Q     => Q(1)
+      Q     => Qout(i),
+      D     => Din(i)
     );
-
-  DFF2 : D_FF
-    port map (
-      D     => sD2,
-      clk   => clk,
-      reset => reset,
-      Q     => Q(2)
-    );
-
-  DFF3 : D_FF
-    port map (
-      D     => sD3,
-      clk   => clk,
-      reset => reset,
-      Q     => Q(3)
-    );
-
-  DFF4 : D_FF
-    port map (
-      D     => Q(3),
-      clk   => clk,
-      reset => reset,
-      Q     => Q(4)
-    );
-
-  DFF5 : D_FF
-    port map (
-      D     => Q(4),
-      clk   => clk,
-      reset => reset,
-      Q     => Q(5)
-    );
-
-  DFF6 : D_FF
-    port map (
-      D     => Q(5),
-      clk   => clk,
-      reset => reset,
-      Q     => Q(6)
-    );
+  end generate DFFGen;
   
-  DFF7 : D_FF
-    port map (
-      D     => Q(6),
-      clk   => clk,
-      reset => reset,
-      Q     => Q(7)
-    );
+  -- parallel out all Q
+  Q <= Qout; 
 
 end arch_pipo;
-
