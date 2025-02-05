@@ -2,9 +2,9 @@
 -- Company: CUHK CSE
 -- Engineer: Yu Ching Hei
 --
--- Create Date: 05.02.2025 12:44:31
+-- Create Date: 05.02.2025 13:59:52
 -- Design Name:
--- Module Name: sipo - Behavioral
+-- Module Name: pipo - Behavioral
 -- Project Name:
 -- Target Devices:
 -- Tool Versions:
@@ -41,6 +41,10 @@ entity pipo is
 end pipo;
 
 architecture arch_pipo of pipo is
+  signal sD0 : std_logic;
+  signal sD1 : std_logic;
+  signal sD2 : std_logic;
+  signal sD3 : std_logic;
 
   component D_FF is
     port (
@@ -50,12 +54,21 @@ architecture arch_pipo of pipo is
       Q     : buffer  std_logic
     );
   end component;
-
+  
+  function mux(Sel : std_logic; mux0, mux1 : std_logic) return std_logic is
+  begin
+    if Sel = '1' then 
+      return mux1;
+    else
+      return mux0;
+    end if; 
+  end function mux;
+  
 begin
 
   DFF0 : D_FF
     port map (
-      D     => D(0) when sel = '1' else '0',
+      D     => mux(sel, D(0), Q(0)),
       clk   => clk,
       reset => reset,
       Q     => Q(0)
