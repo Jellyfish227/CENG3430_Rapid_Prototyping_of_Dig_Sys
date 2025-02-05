@@ -55,20 +55,27 @@ architecture arch_pipo of pipo is
     );
   end component;
   
-  function mux(Sel : std_logic; mux0, mux1 : std_logic) return std_logic is
-  begin
-    if Sel = '1' then 
-      return mux1;
-    else
-      return mux0;
-    end if; 
-  end function mux;
+process (all)
+begin
+  case sel is
+    when '1' => 
+      sD0   <= D(0);
+      sD1   <= D(1);
+      sD2   <= D(2);
+      sD3   <= D(3);
+    when others =>
+      sD0   <= '0';
+      sD1   <= Q(0);
+      sD2   <= Q(1);
+      sD3   <= Q(2);
+  end case;
+end process;
   
 begin
 
   DFF0 : D_FF
     port map (
-      D     => mux(sel, D(0), Q(0)),
+      D     => sD0,
       clk   => clk,
       reset => reset,
       Q     => Q(0)
@@ -76,7 +83,7 @@ begin
 
   DFF1 : D_FF
     port map (
-      D     => D(1) when sel = '1' else Q(0),
+      D     => sD1,
       clk   => clk,
       reset => reset,
       Q     => Q(1)
@@ -84,7 +91,7 @@ begin
 
   DFF2 : D_FF
     port map (
-      D     => D(2) when sel = '1' else Q(1),
+      D     => sD2,
       clk   => clk,
       reset => reset,
       Q     => Q(2)
@@ -92,7 +99,7 @@ begin
 
   DFF3 : D_FF
     port map (
-      D     => D(3) when sel = '1' else Q(2),
+      D     => sD3,
       clk   => clk,
       reset => reset,
       Q     => Q(3)
@@ -100,7 +107,7 @@ begin
 
   DFF4 : D_FF
     port map (
-      D     => sel,
+      D     => Q(3),
       clk   => clk,
       reset => reset,
       Q     => Q(4)
