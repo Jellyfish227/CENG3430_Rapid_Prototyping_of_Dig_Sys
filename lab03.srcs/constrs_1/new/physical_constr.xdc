@@ -13,3 +13,4 @@ set_property IOSTANDARD LVCMOS33 [get_ports Q[3]];
 set_property IOSTANDARD LVCMOS25 [get_ports D];
 set_property IOSTANDARD LVCMOS25 [get_ports clk];
 set_property IOSTANDARD LVCMOS25 [get_ports reset];
+set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets clk_IBUF];
