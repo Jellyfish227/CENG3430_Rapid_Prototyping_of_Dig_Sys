@@ -1,3 +1,23 @@
+----------------------------------------------------------------------------------
+-- Company: CUHK CSE
+-- Engineer: C. H. Yu
+--
+-- Create Date: 12.02.2025 15:41:22
+-- Design Name:
+-- Module Name: clk_div_1hz - Behavioral
+-- Project Name:
+-- Target Devices: Digilent Zedboard
+-- Tool Versions: Vivado 2024.1
+-- Description:
+--
+-- Dependencies:
+--
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+--
+----------------------------------------------------------------------------------
+
 library ieee;
   use ieee.std_logic_1164.all;
 

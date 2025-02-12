@@ -1,13 +1,13 @@
 ----------------------------------------------------------------------------------
--- Company:
--- Engineer:
+-- Company: CUHK CSE
+-- Engineer: C. H. Yu
 --
 -- Create Date: 12.02.2025 14:17:52
 -- Design Name:
 -- Module Name: stopwatch_3_state - Behavioral
 -- Project Name:
--- Target Devices:
--- Tool Versions:
+-- Target Devices: Digilent Zedboard
+-- Tool Versions: Vivado 2024.1
 -- Description:
 --
 -- Dependencies:
@@ -42,7 +42,7 @@ architecture arch_stopwatch_3_state of stopwatch_3_state is
       clk_out : out   std_logic
     );
   end component clk_div_1hz;
-  
+
   component clk_div_2hz is
     port (
       clk_in  : in    std_logic;
@@ -74,7 +74,7 @@ begin
       clk_in  => clk,
       clk_out => clk_1hz
     );
-    
+
   clk_2hz1 : component clk_div_2hz
     port map (
       clk_in  => clk,
@@ -116,21 +116,19 @@ begin
   begin
 
     if (rising_edge(clk_4hz)) then
-      if (state_sig = stop) then
+      if (state_sig = stop) then       -- stop state
         if (btnu = '1') then
           state_sig <= up;
         elsif (btnd = '1') then
           state_sig <= down;
         end if;
-        
-      elsif (state_sig = up) then
+      elsif (state_sig = up) then      -- up state
         if (btnc = '1') then
           state_sig <= stop;
         else
           state_sig <= state_sig;
         end if;
-
-      elsif (state_sig = down) then
+      elsif (state_sig = down) then    -- down state
         if (btnc = '1') then
           state_sig <= stop;
         else
