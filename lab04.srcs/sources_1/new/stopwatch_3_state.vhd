@@ -27,6 +27,8 @@ entity stopwatch_3_state is
     clk    : in    std_logic;
     din    : in    std_logic_vector(3 downto 0);
     btnc   : in    std_logic;
+    btnd   : in    std_logic;
+    btnu   : in    std_logic;
     state  : out   std_logic_vector(2 downto 0);
     output : out   std_logic_vector(3 downto 0)
   );
@@ -40,6 +42,13 @@ architecture arch_stopwatch_3_state of stopwatch_3_state is
       clk_out : out   std_logic
     );
   end component clk_div_1hz;
+  
+  component clk_div_2hz is
+    port (
+      clk_in  : in    std_logic;
+      clk_out : out   std_logic
+    );
+  end component clk_div_2hz;
 
   component clk_div_4hz is
     port (
@@ -49,12 +58,13 @@ architecture arch_stopwatch_3_state of stopwatch_3_state is
   end component clk_div_4hz;
 
   signal clk_1hz : std_logic;
+  signal clk_2hz : std_logic;
   signal clk_4hz : std_logic;
   signal counter : integer := 0;
 
   type state_type is (up, down, stop);
 
-  signal state : state_type := stop;
+  signal state_sig : state_type := stop;
 
 begin
 
@@ -63,6 +73,12 @@ begin
     port map (
       clk_in  => clk,
       clk_out => clk_1hz
+    );
+    
+  clk_2hz1 : component clk_div_2hz
+    port map (
+      clk_in  => clk,
+      clk_out => clk_2hz
     );
 
   clk_4hz1 : component clk_div_4hz
@@ -75,10 +91,10 @@ begin
   output <= std_logic_vector(to_unsigned(counter, 4));
 
   -- State Machine
-  state_disp : process (state) is
+  state_disp : process (state_sig) is
   begin
 
-    case state is
+    case state_sig is
 
       when up =>
 
@@ -100,41 +116,42 @@ begin
   begin
 
     if (rising_edge(clk_4hz)) then
-      if (state = stop) then
+      if (state_sig = stop) then
         if (btnu = '1') then
-          state <= up;
+          state_sig <= up;
         elsif (btnd = '1') then
-          state <= down;
+          state_sig <= down;
+        end if;
+        
+      elsif (state_sig = up) then
+        if (btnc = '1') then
+          state_sig <= down;
+        else
+          state_sig <= state_sig;
         end if;
 
-      elsif (state = up) then
+      elsif (state_sig = down) then
         if (btnc = '1') then
-          state <= down;
+          state_sig <= stop;
         else
-          state <= state;
+          state_sig <= state_sig;
         end if;
-
-      elsif (state = down) then
-        if (btnc = '1') then
-          state <= stop;
-        else
-          state <= state;
-        end if;
+      end if;
     end if;
 
   end process change_state;
 
-  counter_proc : process (state, clk_1hz) is
+  counter_proc : process (state_sig, clk_1hz) is
   begin
 
-    if (state = stop) then
-      counter <= din;
-    elsif (state = up) then
-      if (rising_edge(clk_1hz) and counter < to_integer("1111")) then
+    if (state_sig = stop) then
+      counter <= to_integer(unsigned(din));
+    elsif (state_sig = up) then
+      if (rising_edge(clk_1hz) and counter < 15) then
         counter <= counter + 1;
       end if;
-    elsif (state = down) then
-      if (rising_edge(clk_1hz) and counter > to_integer("0000")) then
+    elsif (state_sig = down) then
+      if (rising_edge(clk_1hz) and counter > 0) then
         counter <= counter - 1;
       end if;
     end if;

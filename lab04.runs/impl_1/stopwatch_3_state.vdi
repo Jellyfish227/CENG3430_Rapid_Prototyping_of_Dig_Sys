@@ -1,0 +1,51 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Wed Feb 12 16:10:11 2025
+# Process ID: 2028
+# Current directory: C:/Users/Student/Desktop/lab04/lab04.runs/impl_1
+# Command line: vivado.exe -log stopwatch_3_state.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source stopwatch_3_state.tcl -notrace
+# Log file: C:/Users/Student/Desktop/lab04/lab04.runs/impl_1/stopwatch_3_state.vdi
+# Journal file: C:/Users/Student/Desktop/lab04/lab04.runs/impl_1\vivado.jou
+# Running On: 102-039, OS: Windows, CPU Frequency: 2112 MHz, CPU Physical cores: 16, Host memory: 16833 MB
+#-----------------------------------------------------------
+source stopwatch_3_state.tcl -notrace
+Command: link_design -top stopwatch_3_state -part xc7z020clg484-1
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1012.945 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 44 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2023.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [C:/Users/Student/Desktop/lab04/lab04.srcs/constrs_1/new/physical-constr.xdc]
+Finished Parsing XDC File [C:/Users/Student/Desktop/lab04/lab04.srcs/constrs_1/new/physical-constr.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1149.141 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+7 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+link_design completed successfully
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net clk_2hz1/clk_1hz has multiple drivers: clk_1hz1/sig_out_i_reg/Q, and clk_2hz1/sig_out_i_reg/Q.
+INFO: [Project 1-461] DRC finished with 1 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+ERROR: [Vivado_Tcl 4-78] Error(s) found during DRC. Opt_design not run.
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.482 . Memory (MB): peak = 1173.953 ; gain = 19.766
+INFO: [Common 17-83] Releasing license: Implementation
+12 Infos, 0 Warnings, 0 Critical Warnings and 2 Errors encountered.
+opt_design failed
+ERROR: [Common 17-39] 'opt_design' failed due to earlier errors.
+
+INFO: [Common 17-206] Exiting Vivado at Wed Feb 12 16:10:21 2025...

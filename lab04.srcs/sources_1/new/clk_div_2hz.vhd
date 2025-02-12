@@ -53,4 +53,3 @@ begin
   clk_out <= sig_out_i;
 
 end architecture arch_clk_div_2hz;
-
