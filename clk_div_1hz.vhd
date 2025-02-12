@@ -1,0 +1,34 @@
+library ieee;
+  use ieee.std_logic_1164.all;
+
+entity clk_div_1hz is
+  port (
+    clk_in  : in    std_logic;
+    clk_out : out   std_logic
+  );
+end entity clk_div_1hz;
+
+architecture arch_clk_div_1hz of clk_div_1hz is
+
+  signal sig_out_i : std_logic := '0';
+  signal counter   : integer   := 0;
+
+begin
+
+  div_proc : process (clk_in) is
+  begin
+
+    if (rising_edge(clk_in)) then
+      if (counter = 50000000 - 1) then
+        sig_out_i <= NOT sig_out_i;
+        counter   <= 0;
+      else
+        counter <= counter + 1;
+      end if;
+    end if;
+
+  end process div_proc;
+
+  clk_out <= sig_out_i;
+
+end architecture arch_clk_div_1hz;
