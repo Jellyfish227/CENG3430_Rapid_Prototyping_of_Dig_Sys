@@ -42,7 +42,7 @@ architecture arch_stopwatch_3_state of stopwatch_3_state is
       clk_out : out   std_logic
     );
   end component clk_div_1hz;
-  
+
   component clk_div_2hz is
     port (
       clk_in  : in    std_logic;
@@ -74,7 +74,7 @@ begin
       clk_in  => clk,
       clk_out => clk_1hz
     );
-    
+
   clk_2hz1 : component clk_div_2hz
     port map (
       clk_in  => clk,
@@ -122,14 +122,12 @@ begin
         elsif (btnd = '1') then
           state_sig <= down;
         end if;
-        
       elsif (state_sig = up) then
         if (btnc = '1') then
           state_sig <= down;
         else
           state_sig <= state_sig;
         end if;
-
       elsif (state_sig = down) then
         if (btnc = '1') then
           state_sig <= stop;
@@ -141,21 +139,28 @@ begin
 
   end process change_state;
 
-  counter_proc : process (state_sig, clk_1hz) is
+  counter <= to_integer(unsigned(din)) when state_sig = stop;
+
+  up_proc : process (state_sig, clk_1hz) is
   begin
 
-    if (state_sig = stop) then
-      counter <= to_integer(unsigned(din));
-    elsif (state_sig = up) then
+    if (state_sig = up) then
       if (rising_edge(clk_1hz) and counter < 15) then
         counter <= counter + 1;
       end if;
-    elsif (state_sig = down) then
-      if (rising_edge(clk_1hz) and counter > 0) then
+    end if;
+
+  end process up_proc;
+
+  down_proc : process (state_sig, clk_2hz) is
+  begin
+
+    if (state_sig = down) then
+      if (rising_edge(clk_2hz) and counter > 0) then
         counter <= counter - 1;
       end if;
     end if;
 
-  end process counter_proc;
+  end process down_proc;
 
 end architecture arch_stopwatch_3_state;
