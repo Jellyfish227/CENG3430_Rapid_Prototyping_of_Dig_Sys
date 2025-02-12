@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1739347776" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/stopwatch_2_state.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1739349300" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/stopwatch_2_state.dcp">
   <File Type="PA-TCL" Name="stopwatch_3_state.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="stopwatch_3_state_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="stopwatch_3_state_reports.tcl"/>
