@@ -1,23 +1,3 @@
-----------------------------------------------------------------------------------
--- Company: CUHK CSE
--- Engineer: C. H. Yu
---
--- Create Date: 19.02.2025 13:13:14
--- Design Name:
--- Module Name: lab05 - Behavioral
--- Project Name:
--- Target Devices:
--- Tool Versions:
--- Description:
---
--- Dependencies:
---
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
---
-----------------------------------------------------------------------------------
-
 library ieee;
   use ieee.std_logic_1164.all;
   use ieee.std_logic_unsigned.all;
@@ -25,10 +5,6 @@ library ieee;
 entity vga_driver is
   port (
     clk   : in    std_logic;
-    btnu  : in    std_logic;
-    btnd  : in    std_logic;
-    btnl  : in    std_logic;
-    btnr  : in    std_logic;
     hsync : out   std_logic;
     vsync : out   std_logic;
     red   : out   std_logic_vector(3 downto 0);
@@ -60,10 +36,10 @@ architecture vga_driver_arch of vga_driver is
   constant v_end    : integer := 625 - 10 - 1;
   constant v_front  : integer := 10 - 1;
 
-  -- 7. Parameters of the square
+  -- 7. Constants of the square
   constant length     : integer := 100;
-  signal   h_top_left : integer := (h_start + h_end) / 2 - length / 2;
-  signal   v_top_left : integer := (v_start + v_end) / 2 - length / 2;
+  constant h_top_left : integer := (h_start + h_end) / 2 - length / 2;
+  constant v_top_left : integer := (v_start + v_end) / 2 - length / 2;
 
   -- 2. import clock divider
   component clock_divider is
@@ -177,39 +153,5 @@ begin
     end if;
 
   end process data_output_proc;
-
-  -- 8. update the position of the square
-  update_position_proc : process (clk10hz) is
-  begin
-
-    if (rising_edge(clk10hz)) then
-      if (btnu = '1') then
-        if (v_top_left = v_end - length) then
-          v_top_left <= v_start;
-        else
-          v_top_left <= v_top_left + 10;
-        end if;
-      elsif (btnd = '1') then
-        if (v_top_left = v_start) then
-          v_top_left <= v_end - length;
-        else
-          h_top_left <= h_top_left - 10;
-        end if;
-      elsif (btnl = '1') then
-        if (h_top_left = h_end - length) then
-          h_top_left <= h_start;
-        else
-          h_top_left <= h_top_left + 10;
-        end if;
-      elsif (btnr = '1') then
-        if (h_top_left = h_start) then
-          h_top_left <= h_end - length;
-        else
-          h_top_left <= h_top_left - 10;
-        end if;
-      end if;
-    end if;
-
-  end process update_position_proc;
 
 end architecture vga_driver_arch;
