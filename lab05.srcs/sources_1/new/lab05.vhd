@@ -185,27 +185,27 @@ begin
     if (rising_edge(clk10hz)) then
       if (BTNU = '1') then
         if (v_top_left = v_end - length) then
-          v_top_left <= v_start;
+          v_top_left <= v_top_left;
         else
-          v_top_left <= v_top_left + 10;
+          v_top_left <= v_top_left - 10;
         end if;
       elsif (BTND = '1') then
         if (v_top_left = v_start) then
-          v_top_left <= v_end - length;
+          v_top_left <= v_top_left;
         else
-          h_top_left <= h_top_left - 10;
+          v_top_left <= v_top_left + 10;
         end if;
       elsif (BTNL = '1') then
         if (h_top_left = h_end - length) then
-          h_top_left <= h_start;
+          h_top_left <= h_top_left;
         else
-          h_top_left <= h_top_left + 10;
+          h_top_left <= h_top_left - 10;
         end if;
       elsif (BTNR = '1') then
         if (h_top_left = h_start) then
-          h_top_left <= h_end - length;
+          h_top_left <= h_top_left;
         else
-          h_top_left <= h_top_left - 10;
+          h_top_left <= h_top_left + 10;
         end if;
       end if;
     end if;
