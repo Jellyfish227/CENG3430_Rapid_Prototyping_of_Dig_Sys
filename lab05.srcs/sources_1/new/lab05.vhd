@@ -1,3 +1,24 @@
+----------------------------------------------------------------------------------
+-- Company: CUHK CSE
+-- Engineer: C. H. Yu
+-- 
+-- Create Date: 19.02.2025 13:13:14
+-- Design Name: 
+-- Module Name: lab05 - Behavioral
+-- Project Name: 
+-- Target Devices: 
+-- Tool Versions: 
+-- Description: 
+-- 
+-- Dependencies: 
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+-- 
+----------------------------------------------------------------------------------
+
+
 library ieee;
   use ieee.std_logic_1164.all;
   use ieee.std_logic_unsigned.all;
