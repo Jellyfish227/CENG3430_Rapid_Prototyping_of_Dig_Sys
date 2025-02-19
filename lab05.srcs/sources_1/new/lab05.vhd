@@ -63,7 +63,12 @@ architecture vga_driver_arch of vga_driver is
   -- 7. Parameters of the square
   constant length     : integer := 100;
   signal   h_top_left : integer := (h_start + h_end) / 2 - length / 2;
+  signal   h_bot_left : integer;
   signal   v_top_left : integer := (v_start + v_end) / 2 - length / 2;
+  signal   v_bot_left : integer;
+
+  h_bot_left <= h_active - h_top_left - length;
+  v_bot_left <= v_active - v_top_left - length;
 
   -- 2. import clock divider
   component clock_divider is
@@ -184,28 +189,28 @@ begin
 
     if (rising_edge(clk10hz)) then
       if (BTNU = '1') then
-        if (v_top_left = v_end - length) then
-          v_top_left <= v_top_left;
-        else
+        if (v_top_left > 0 and v_bot_left > 0) then
           v_top_left <= v_top_left - 10;
+        else
+          v_top_left <= v_top_left;
         end if;
       elsif (BTND = '1') then
-        if (v_top_left = v_start) then
-          v_top_left <= v_top_left;
-        else
+        if (v_top_left > 0 and v_bot_left > 0) then
           v_top_left <= v_top_left + 10;
+        else
+          v_top_left <= v_top_left;
         end if;
       elsif (BTNL = '1') then
-        if (h_top_left = h_end - length) then
-          h_top_left <= h_top_left;
-        else
+        if (h_top_left > 0 and h_bot_left > 0) then
           h_top_left <= h_top_left - 10;
+        else
+          h_top_left <= h_top_left;
         end if;
       elsif (BTNR = '1') then
-        if (h_top_left = h_start) then
-          h_top_left <= h_top_left;
-        else
+        if (h_top_left > 0 and h_bot_left > 0) then
           h_top_left <= h_top_left + 10;
+        else
+          h_top_left <= h_top_left;
         end if;
       end if;
     end if;
