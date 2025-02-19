@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "C:/Users/Student/Desktop/lab05/lab05.runs/impl_1/vga_driver.tcl"
+  variable script "C:/Users/Student/Desktop/CENG3430_Rapid_Prototyping_of_Dig_Sys-lab5/lab05.runs/impl_1/vga_driver.tcl"
   variable category "vivado_impl"
 }
 
@@ -127,7 +127,7 @@ set rc [catch {
   set_param xicom.use_bs_reader 1
   set_param runs.launchOptions { -jobs 24  }
   open_checkpoint vga_driver_routed.dcp
-  set_property webtalk.parent_dir C:/Users/Student/Desktop/lab05/lab05.cache/wt [current_project]
+  set_property webtalk.parent_dir C:/Users/Student/Desktop/CENG3430_Rapid_Prototyping_of_Dig_Sys-lab5/lab05.cache/wt [current_project]
 set_property TOP vga_driver [current_fileset]
 OPTRACE "read constraints: write_bitstream" START { }
 OPTRACE "read constraints: write_bitstream" END { }

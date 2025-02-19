@@ -63,7 +63,7 @@ architecture vga_driver_arch of vga_driver is
   -- 7. Parameters of the square
   constant length     : integer := 100;
   signal   h_top_left : integer := (h_start + h_end) / 2 - length / 2;
-  signal   h_bot_left : integer;
+  signal   h_top_right : integer;
   signal   v_top_left : integer := (v_start + v_end) / 2 - length / 2;
   signal   v_bot_left : integer;
 
@@ -80,8 +80,8 @@ architecture vga_driver_arch of vga_driver is
 
 begin
 
-  h_bot_left <= h_active - h_top_left - length;
-  v_bot_left <= v_active - v_top_left - length;
+  h_top_right <= h_top_left + length;
+  v_bot_left <= v_top_left + length;
 
   -- 2. generate 50MHz clock
   comp_clk50mhz : component clock_divider
@@ -192,25 +192,25 @@ begin
         if (v_top_left - 10 >= v_start) then
           v_top_left <= v_top_left - 10;
         else
-          v_top_left <= v_top_left;
+          v_top_left <= v_start;
         end if;
       elsif (BTND = '1') then
         if (v_bot_left + 10 <= v_end) then
           v_top_left <= v_top_left + 10;
         else
-          v_top_left <= v_top_left;
+          v_top_left <= v_end - length;
         end if;
       elsif (BTNL = '1') then
-        if (h_top_left - 10 >= h_start) then
+        if (h_top_left - 10 >= h_start + h_front) then
           h_top_left <= h_top_left - 10;
         else
-          h_top_left <= h_top_left;
+          h_top_left <= h_start + h_front;
         end if;
       elsif (BTNR = '1') then
-        if (h_top_left + 10 <= h_end) then
+        if (h_top_right + 10 <= h_end - h_front) then
           h_top_left <= h_top_left + 10;
         else
-          h_top_left <= h_top_left;
+          h_top_left <= h_end - length - h_front;
         end if;
       end if;
     end if;
