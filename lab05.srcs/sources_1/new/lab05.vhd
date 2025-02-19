@@ -44,28 +44,28 @@ architecture vga_driver_arch of vga_driver is
   signal hcount, vcount : integer := 0;
   -- 1. row and column constants
   -- row constants
-  constant h_total  : integer := 1344 - 1;
-  constant h_sync   : integer := 48 - 1;
-  constant h_back   : integer := 240 - 1;
-  constant h_start  : integer := 48 + 240 - 1;
-  constant h_active : integer := 1024 - 1;
-  constant h_end    : integer := 1344 - 32 - 1;
-  constant h_front  : integer := 32 - 1;
+  constant H_TOTAL  : integer := 1344 - 1;
+  constant H_SYNC   : integer := 48 - 1;
+  constant H_BACK   : integer := 240 - 1;
+  constant H_START  : integer := 48 + 240 - 1;
+  constant H_ACTIVE : integer := 1024 - 1;
+  constant H_END    : integer := 1344 - 32 - 1;
+  constant H_FRONT  : integer := 32 - 1;
   -- column constants
-  constant v_total  : integer := 625 - 1;
-  constant v_sync   : integer := 3 - 1;
-  constant v_back   : integer := 12 - 1;
-  constant v_start  : integer := 3 + 12 - 1;
-  constant v_active : integer := 600 - 1;
-  constant v_end    : integer := 625 - 10 - 1;
-  constant v_front  : integer := 10 - 1;
+  constant V_TOTAL  : integer := 625 - 1;
+  constant V_SYNC   : integer := 3 - 1;
+  constant V_BACK   : integer := 12 - 1;
+  constant V_START  : integer := 3 + 12 - 1;
+  constant V_ACTIVE : integer := 600 - 1;
+  constant V_END    : integer := 625 - 10 - 1;
+  constant V_FRONT  : integer := 10 - 1;
 
   -- 7. Parameters of the square
-  constant length     : integer := 100;
-  signal   h_top_left : integer := (h_start + h_end) / 2 - length / 2;
+  constant LENGTH      : integer := 100;
+  signal   h_top_left  : integer := (H_START + H_END) / 2 - LENGTH / 2;
   signal   h_top_right : integer;
-  signal   v_top_left : integer := (v_start + v_end) / 2 - length / 2;
-  signal   v_bot_left : integer;
+  signal   v_top_left  : integer := (V_START + V_END) / 2 - LENGTH / 2;
+  signal   v_bot_left  : integer;
 
   -- 2. import clock divider
   component clock_divider is
@@ -80,8 +80,8 @@ architecture vga_driver_arch of vga_driver is
 
 begin
 
-  h_top_right <= h_top_left + length;
-  v_bot_left <= v_top_left + length;
+  h_top_right <= h_top_left + LENGTH;
+  v_bot_left  <= v_top_left + LENGTH;
 
   -- 2. generate 50MHz clock
   comp_clk50mhz : component clock_divider
@@ -108,7 +108,7 @@ begin
   begin
 
     if (rising_edge(clk50mhz)) then
-      if (hcount = h_total) then
+      if (hcount = H_TOTAL) then
         hcount <= 0;
       else
         hcount <= hcount + 1;
@@ -122,8 +122,8 @@ begin
   begin
 
     if (rising_edge(clk50mhz)) then
-      if (hcount = h_total) then
-        if (vcount = v_total) then
+      if (hcount = H_TOTAL) then
+        if (vcount = V_TOTAL) then
           vcount <= 0;
         else
           vcount <= vcount + 1;
@@ -137,7 +137,7 @@ begin
   hsync_gen_proc : process (hcount) is
   begin
 
-    if (hcount < h_sync) then
+    if (hcount < H_SYNC) then
       hsync <= '0';
     else
       hsync <= '1';
@@ -149,7 +149,7 @@ begin
   vsync_gen_proc : process (vcount) is
   begin
 
-    if (vcount < v_sync) then
+    if (vcount < V_SYNC) then
       vsync <= '0';
     else
       vsync <= '1';
@@ -161,11 +161,11 @@ begin
   data_output_proc : process (hcount, vcount) is
   begin
 
-    if ((hcount >= h_start and hcount < h_end) and
-        (vcount >= v_start and vcount < v_end)) then
+    if ((hcount >= H_START and hcount < H_END) and
+        (vcount >= V_START and vcount < V_END)) then
       -- Display Area (draw the square here)
-      if ((hcount >= h_top_left and hcount < h_top_left + length) and
-          (vcount >= v_top_left and vcount < v_top_left + length)) then
+      if ((hcount >= h_top_left and hcount < h_top_left + LENGTH) and
+          (vcount >= v_top_left and vcount < v_top_left + LENGTH)) then
         red   <= "1111";
         green <= "0000";
         blue  <= "1111";
@@ -189,28 +189,28 @@ begin
 
     if (rising_edge(clk10hz)) then
       if (BTNU = '1') then
-        if (v_top_left - 10 >= v_start) then
+        if (v_top_left - 10 >= V_START) then
           v_top_left <= v_top_left - 10;
         else
-          v_top_left <= v_start;
+          v_top_left <= V_START;
         end if;
       elsif (BTND = '1') then
-        if (v_bot_left + 10 <= v_end) then
+        if (v_bot_left + 10 <= V_END) then
           v_top_left <= v_top_left + 10;
         else
-          v_top_left <= v_end - length;
+          v_top_left <= V_END - LENGTH;
         end if;
       elsif (BTNL = '1') then
-        if (h_top_left - 10 >= h_start + h_front) then
+        if (h_top_left - 10 >= H_START + H_FRONT) then
           h_top_left <= h_top_left - 10;
         else
-          h_top_left <= h_start + h_front;
+          h_top_left <= H_START + H_FRONT;
         end if;
       elsif (BTNR = '1') then
-        if (h_top_right + 10 <= h_end - h_front) then
+        if (h_top_right + 10 <= H_END - H_FRONT) then
           h_top_left <= h_top_left + 10;
         else
-          h_top_left <= h_end - length - h_front;
+          h_top_left <= H_END - LENGTH - H_FRONT;
         end if;
       end if;
     end if;
