@@ -25,10 +25,10 @@ library ieee;
 entity vga_driver is
   port (
     clk   : in    std_logic;
-    btnu  : in    std_logic;
-    btnd  : in    std_logic;
-    btnl  : in    std_logic;
-    btnr  : in    std_logic;
+    BTNU  : in    std_logic;
+    BTND  : in    std_logic;
+    BTNL  : in    std_logic;
+    BTNR  : in    std_logic;
     hsync : out   std_logic;
     vsync : out   std_logic;
     red   : out   std_logic_vector(3 downto 0);
@@ -183,25 +183,25 @@ begin
   begin
 
     if (rising_edge(clk10hz)) then
-      if (btnu = '1') then
+      if (BTNU = '1') then
         if (v_top_left = v_end - length) then
           v_top_left <= v_start;
         else
           v_top_left <= v_top_left + 10;
         end if;
-      elsif (btnd = '1') then
+      elsif (BTND = '1') then
         if (v_top_left = v_start) then
           v_top_left <= v_end - length;
         else
           h_top_left <= h_top_left - 10;
         end if;
-      elsif (btnl = '1') then
+      elsif (BTNL = '1') then
         if (h_top_left = h_end - length) then
           h_top_left <= h_start;
         else
           h_top_left <= h_top_left + 10;
         end if;
-      elsif (btnr = '1') then
+      elsif (BTNR = '1') then
         if (h_top_left = h_start) then
           h_top_left <= h_end - length;
         else
