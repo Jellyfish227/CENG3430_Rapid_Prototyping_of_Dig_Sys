@@ -28,7 +28,7 @@ entity clk_div is
   );
   port (
     clk_in  : in    std_logic;
-    clk_out : out   std_logic
+    clk_out : buffer   std_logic
   );
 end entity clk_div;
 
