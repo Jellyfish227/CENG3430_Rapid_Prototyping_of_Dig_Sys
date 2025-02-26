@@ -1,23 +1,22 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
+-- Company: CUHK CSE
+-- Engineer: C. H. Yu
+--
 -- Create Date: 26.02.2025 13:21:46
--- Design Name: 
+-- Design Name:
 -- Module Name: ssd_ctrl - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
+-- Project Name:
+-- Target Devices:
+-- Tool Versions:
+-- Description:
+--
+-- Dependencies:
+--
 -- Revision:
 -- Revision 0.01 - File Created
 -- Additional Comments:
--- 
+--
 ----------------------------------------------------------------------------------
-
 
 library ieee;
   use ieee.std_logic_1164.all;
@@ -34,7 +33,7 @@ end entity ssd_ctrl;
 
 architecture behavioral of ssd_ctrl is
 
-  signal clk100hz :std_logic;
+  signal clk100hz : std_logic;
 
   -- TODO-4: Create the component of clk_div
   component clk_div is
