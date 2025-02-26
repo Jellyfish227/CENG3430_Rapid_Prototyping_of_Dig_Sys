@@ -23,10 +23,22 @@ set_property PACKAGE_PIN W8 [get_ports {sel}];  # "JB4"
 #set_property PACKAGE_PIN V9 [get_ports {JB9}];  # "JB9"
 #set_property PACKAGE_PIN V8 [get_ports {JB10}];  # "JB10"
 # set_property IOSTANDARD LVCMOS33 [get_ports -of_objects [get_iobanks 13]];
-set_property IOSTANDARD LVCMOS33 [get_ports ssd];
-set_property IOSTANDARD LVCMOS33 [get_ports sel];
+# set_property IOSTANDARD LVCMOS33 [get_ports ssd];
+# set_property IOSTANDARD LVCMOS33 [get_ports sel];
 
 #TODO-14: Fill in the constraint of Pmod ALS
+# ----------------------------------------------------------------------------
+# JC Pmod - Bank 13
+# ---------------------------------------------------------------------------- 
+set_property PACKAGE_PIN AB6 [get_ports {mosi}];  # "JC1_N"
+set_property PACKAGE_PIN AB7 [get_ports {cs}];  # "JC1_P"
+set_property PACKAGE_PIN AA4 [get_ports {sclk}];  # "JC2_N"
+set_property PACKAGE_PIN Y4  [get_ports {miso}];  # "JC2_P"
+#set_property PACKAGE_PIN T6  [get_ports {JC3_N}];  # "JC3_N"
+#set_property PACKAGE_PIN R6  [get_ports {JC3_P}];  # "JC3_P"
+#set_property PACKAGE_PIN U4  [get_ports {JC4_N}];  # "JC4_N"
+#set_property PACKAGE_PIN T4  [get_ports {JC4_P}];  # "JC4_P"
+set_property IOSTANDARD LVCMOS33 [get_ports -of_objects [get_iobanks 13]];
 
 # Do not need to modify below
 set_property PACKAGE_PIN Y9 [get_ports clk]
