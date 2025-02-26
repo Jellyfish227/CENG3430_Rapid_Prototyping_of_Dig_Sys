@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date         : Wed Feb 26 13:26:29 2025
+| Date         : Wed Feb 26 14:14:12 2025
 | Host         : 102-039 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file lab06_control_sets_placed.rpt
 | Design       : lab06
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |     3 |
-|    Minimum number of control sets                        |     3 |
+| Total control sets                                       |     8 |
+|    Minimum number of control sets                        |     8 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    14 |
+| Unused register locations in slices containing registers |    25 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,15 +39,15 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |     3 |
-| >= 0 to < 4        |     2 |
-| >= 4 to < 6        |     0 |
-| >= 6 to < 8        |     0 |
-| >= 8 to < 10       |     0 |
-| >= 10 to < 12      |     0 |
+| Total control sets |     8 |
+| >= 0 to < 4        |     1 |
+| >= 4 to < 6        |     2 |
+| >= 6 to < 8        |     1 |
+| >= 8 to < 10       |     1 |
+| >= 10 to < 12      |     1 |
 | >= 12 to < 14      |     0 |
 | >= 14 to < 16      |     0 |
-| >= 16              |     1 |
+| >= 16              |     2 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -58,24 +58,29 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               2 |            2 |
+| No           | No                    | No                     |               8 |            4 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              32 |            9 |
-| Yes          | No                    | No                     |               0 |            0 |
+| No           | Yes                   | No                     |              65 |           20 |
+| Yes          | No                    | No                     |              17 |            5 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |               0 |            0 |
+| Yes          | Yes                   | No                     |               5 |            2 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+-------------------------------+---------------+-----------------------------+------------------+----------------+--------------+
-|          Clock Signal         | Enable Signal |       Set/Reset Signal      | Slice Load Count | Bel Load Count | Bels / Slice |
-+-------------------------------+---------------+-----------------------------+------------------+----------------+--------------+
-|  ssd_ctrl_0/clk_100hz/clk_out |               |                             |                1 |              1 |         1.00 |
-|  clk_IBUF_BUFG                |               |                             |                1 |              1 |         1.00 |
-|  clk_IBUF_BUFG                |               | ssd_ctrl_0/clk_100hz/p_0_in |                9 |             32 |         3.56 |
-+-------------------------------+---------------+-----------------------------+------------------+----------------+--------------+
++-------------------------------+------------------------------------+-------------------------------------------+------------------+----------------+--------------+
+|          Clock Signal         |            Enable Signal           |              Set/Reset Signal             | Slice Load Count | Bel Load Count | Bels / Slice |
++-------------------------------+------------------------------------+-------------------------------------------+------------------+----------------+--------------+
+|  ssd_ctrl_0/clk_100hz/clk_out |                                    |                                           |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG                |                                    | spi_master_0/continue7_in                 |                3 |              5 |         1.67 |
+|  clk_IBUF_BUFG                | spi_master_0/busy1                 | spi_master_0/continue7_in                 |                2 |              5 |         2.50 |
+|  clk_IBUF_BUFG                |                                    |                                           |                3 |              7 |         2.33 |
+|  clk_IBUF_BUFG                | spi_master_0/rx_data[11]_i_1_n_0   |                                           |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG                | spi_master_0/rx_buffer[11]_i_1_n_0 |                                           |                4 |             10 |         2.50 |
+|  clk_IBUF_BUFG                |                                    | spi_master_0/assert_data                  |                8 |             28 |         3.50 |
+|  clk_IBUF_BUFG                |                                    | ssd_ctrl_0/clk_100hz/count[31]_i_1__0_n_0 |                9 |             32 |         3.56 |
++-------------------------------+------------------------------------+-------------------------------------------+------------------+----------------+--------------+
 
 
