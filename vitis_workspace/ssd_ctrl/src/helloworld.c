@@ -1,0 +1,64 @@
+/******************************************************************************
+* Copyright (C) 2023 Advanced Micro Devices, Inc. All Rights Reserved.
+* SPDX-License-Identifier: MIT
+******************************************************************************/
+/*
+ * helloworld.c: simple test application
+ *
+ * This application configures UART 16550 to baud rate 9600.
+ * PS7 UART (Zynq) is not initialized by this application, since
+ * bootrom/bsp configures it to baud rate 115200
+ *
+ * ------------------------------------------------
+ * | UART TYPE   BAUD RATE                        |
+ * ------------------------------------------------
+ *   uartns550   9600
+ *   uartlite    Configurable only in HW design
+ *   ps7_uart    115200 (configured by bootrom/bsp)
+ */
+
+#include <stdio.h>
+#include "platform.h"
+#include "xil_printf.h"
+
+#include "xparameters.h"
+#include "ssd_ctrl.h" //created by the ssd_ctrl IP
+#include "xil_io.h"
+
+#include <xtime_l.h>
+#include <stdlib.h>
+
+int main()
+{
+	init_platform();
+	XTime T;
+	XTime_GetTime(&T);
+	srand(T);
+
+	u32 btn_prev = 0, state = 0, digit = 0;
+	u32 random = 0,led = 0;
+
+	while(1){
+		u32 btn = SSD_CTRL_mReadReg(XPAR_SSD_CTRL_0_S00_AXI_BASEADDR,
+					SSD_CTRL_S00_AXI_SLV_REG2_OFFSET);
+		if(btn != btn_prev && btn == 1)
+			state = 1 - state;
+		if(state == 1){
+			random = rand();
+			led = 0b00001111;
+			digit = random;
+		} else {
+			led = 0b11110000;
+			digit = random;
+		}
+		SSD_CTRL_mWriteReg(XPAR_SSD_CTRL_0_S00_AXI_BASEADDR,
+				SSD_CTRL_S00_AXI_SLV_REG0_OFFSET, digit);
+		SSD_CTRL_mWriteReg(XPAR_SSD_CTRL_0_S00_AXI_BASEADDR,
+				SSD_CTRL_S00_AXI_SLV_REG1_OFFSET, led);
+
+		btn_prev = btn;
+		for(volatile int i=0; i < 10000000; i++){}
+	}
+	cleanup_platform();
+	return 0;
+}
