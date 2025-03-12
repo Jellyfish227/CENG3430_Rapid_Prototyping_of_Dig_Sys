@@ -1,4 +1,4 @@
-14:23:25 **** Incremental Build of configuration Debug for project ssd_ctrl ****
+15:52:35 **** Build of configuration Debug for project ssd_ctrl ****
 make all 
 make --no-print-directory pre-build
 a9-linaro-pre-build-step
@@ -17,9 +17,9 @@ arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=non
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size ssd_ctrl.elf  |tee "ssd_ctrl.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  19492	   1144	  22568	  43204	   a8c4	ssd_ctrl.elf
+  19276	   1144	  22568	  42988	   a7ec	ssd_ctrl.elf
 'Finished building: ssd_ctrl.elf.size'
 ' '
 
-14:23:25 Build Finished (took 554ms)
+15:52:40 Build Finished (took 4s.922ms)
 

@@ -302,3 +302,153 @@ con
 14:34:29 INFO  : Registering command handlers for Vitis TCF services
 14:34:29 INFO  : Successfully done query RDI_DATADIR 
 14:34:30 INFO  : Platform repository initialization has completed.
+15:51:19 DEBUG : Logs will be stored at 'C:/Users/Student/vitis_workspace/IDE.log'.
+15:51:19 INFO  : Launching XSCT server: xsct.bat -n  -interactive C:\Users\Student\vitis_workspace\temp_xsdb_launch_script.tcl
+15:51:21 INFO  : XSCT server has started successfully.
+15:51:21 INFO  : Successfully done setting XSCT server connection channel  
+15:51:21 INFO  : plnx-install-location is set to ''
+15:51:22 INFO  : Successfully done setting workspace for the tool. 
+15:51:34 INFO  : Registering command handlers for Vitis TCF services
+15:51:34 INFO  : Successfully done query RDI_DATADIR 
+15:51:35 INFO  : Platform repository initialization has completed.
+15:52:32 INFO  : Result from executing command 'getProjects': design_1_wrapper
+15:52:32 INFO  : Result from executing command 'getPlatforms': design_1_wrapper|C:/Users/Student/vitis_workspace/design_1_wrapper/export/design_1_wrapper/design_1_wrapper.xpfm;xilinx_vck190_base_202320_1|C:/Xilinx/Vitis/2023.2/base_platforms/xilinx_vck190_base_202320_1/xilinx_vck190_base_202320_1.xpfm;xilinx_vck190_base_dfx_202320_1|C:/Xilinx/Vitis/2023.2/base_platforms/xilinx_vck190_base_dfx_202320_1/xilinx_vck190_base_dfx_202320_1.xpfm;xilinx_vek280_es1_base_202320_1|C:/Xilinx/Vitis/2023.2/base_platforms/xilinx_vek280_es1_base_202320_1/xilinx_vek280_es1_base_202320_1.xpfm;xilinx_vmk180_base_202320_1|C:/Xilinx/Vitis/2023.2/base_platforms/xilinx_vmk180_base_202320_1/xilinx_vmk180_base_202320_1.xpfm;xilinx_zcu102_base_202320_1|C:/Xilinx/Vitis/2023.2/base_platforms/xilinx_zcu102_base_202320_1/xilinx_zcu102_base_202320_1.xpfm;xilinx_zcu102_base_dfx_202320_1|C:/Xilinx/Vitis/2023.2/base_platforms/xilinx_zcu102_base_dfx_202320_1/xilinx_zcu102_base_dfx_202320_1.xpfm;xilinx_zcu104_base_202320_1|C:/Xilinx/Vitis/2023.2/base_platforms/xilinx_zcu104_base_202320_1/xilinx_zcu104_base_202320_1.xpfm
+15:52:33 INFO  : Checking for BSP changes to sync application flags for project 'ssd_ctrl'...
+15:52:46 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:52:47 INFO  : Jtag cable 'Digilent Zed 210248B849FE' is selected.
+15:52:47 INFO  : 'jtag frequency' command is executed.
+15:52:47 INFO  : Context for 'APU' is selected.
+15:52:47 INFO  : System reset is completed.
+15:52:50 INFO  : 'after 3000' command is executed.
+15:52:50 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248B849FE" && level==0 && jtag_device_ctx=="jsn-Zed-210248B849FE-23727093-0"}' command is executed.
+15:52:52 INFO  : Device configured successfully with "C:/Users/Student/vitis_workspace/ssd_ctrl/_ide/bitstream/design_1_wrapper.bit"
+15:52:52 INFO  : Context for 'APU' is selected.
+15:52:52 INFO  : Hardware design and registers information is loaded from 'C:/Users/Student/vitis_workspace/design_1_wrapper/export/design_1_wrapper/hw/design_1_wrapper.xsa'.
+15:52:52 INFO  : 'configparams force-mem-access 1' command is executed.
+15:52:52 INFO  : Context for 'APU' is selected.
+15:52:52 INFO  : Sourcing of 'C:/Users/Student/vitis_workspace/ssd_ctrl/_ide/psinit/ps7_init.tcl' is done.
+15:52:52 INFO  : 'ps7_init' command is executed.
+15:52:52 INFO  : 'ps7_post_config' command is executed.
+15:52:52 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:52:53 INFO  : The application 'C:/Users/Student/vitis_workspace/ssd_ctrl/Debug/ssd_ctrl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+15:52:53 INFO  : 'configparams force-mem-access 0' command is executed.
+15:52:53 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248B849FE" && level==0 && jtag_device_ctx=="jsn-Zed-210248B849FE-23727093-0"}
+fpga -file C:/Users/Student/vitis_workspace/ssd_ctrl/_ide/bitstream/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/Student/vitis_workspace/design_1_wrapper/export/design_1_wrapper/hw/design_1_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/Users/Student/vitis_workspace/ssd_ctrl/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/Users/Student/vitis_workspace/ssd_ctrl/Debug/ssd_ctrl.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+15:52:53 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:52:53 INFO  : 'con' command is executed.
+15:52:53 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+15:52:53 INFO  : Launch script is exported to file 'C:\Users\Student\vitis_workspace\ssd_ctrl_system\_ide\scripts\systemdebugger_ssd_ctrl_system_standalone.tcl'
+15:54:34 INFO  : Disconnected from the channel tcfchan#3.
+15:54:34 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:54:34 INFO  : Jtag cable 'Digilent Zed 210248B849FE' is selected.
+15:54:34 INFO  : 'jtag frequency' command is executed.
+15:54:34 INFO  : Context for 'APU' is selected.
+15:54:34 INFO  : System reset is completed.
+15:54:37 INFO  : 'after 3000' command is executed.
+15:54:37 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248B849FE" && level==0 && jtag_device_ctx=="jsn-Zed-210248B849FE-23727093-0"}' command is executed.
+15:54:39 INFO  : Device configured successfully with "C:/Users/Student/vitis_workspace/ssd_ctrl/_ide/bitstream/design_1_wrapper.bit"
+15:54:39 INFO  : Context for 'APU' is selected.
+15:54:39 INFO  : Hardware design and registers information is loaded from 'C:/Users/Student/vitis_workspace/design_1_wrapper/export/design_1_wrapper/hw/design_1_wrapper.xsa'.
+15:54:39 INFO  : 'configparams force-mem-access 1' command is executed.
+15:54:39 INFO  : Context for 'APU' is selected.
+15:54:39 INFO  : Sourcing of 'C:/Users/Student/vitis_workspace/ssd_ctrl/_ide/psinit/ps7_init.tcl' is done.
+15:54:40 INFO  : 'ps7_init' command is executed.
+15:54:40 INFO  : 'ps7_post_config' command is executed.
+15:54:40 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:54:40 INFO  : The application 'C:/Users/Student/vitis_workspace/ssd_ctrl/Debug/ssd_ctrl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+15:54:40 INFO  : 'configparams force-mem-access 0' command is executed.
+15:54:40 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248B849FE" && level==0 && jtag_device_ctx=="jsn-Zed-210248B849FE-23727093-0"}
+fpga -file C:/Users/Student/vitis_workspace/ssd_ctrl/_ide/bitstream/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/Student/vitis_workspace/design_1_wrapper/export/design_1_wrapper/hw/design_1_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/Users/Student/vitis_workspace/ssd_ctrl/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/Users/Student/vitis_workspace/ssd_ctrl/Debug/ssd_ctrl.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+15:54:40 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:54:40 INFO  : 'con' command is executed.
+15:54:40 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+15:54:40 INFO  : Launch script is exported to file 'C:\Users\Student\vitis_workspace\ssd_ctrl_system\_ide\scripts\systemdebugger_ssd_ctrl_system_standalone.tcl'
+15:54:58 INFO  : Disconnected from the channel tcfchan#4.
+15:54:58 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:54:58 INFO  : Jtag cable 'Digilent Zed 210248B849FE' is selected.
+15:54:58 INFO  : 'jtag frequency' command is executed.
+15:54:58 INFO  : Context for 'APU' is selected.
+15:54:59 INFO  : System reset is completed.
+15:55:02 INFO  : 'after 3000' command is executed.
+15:55:02 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248B849FE" && level==0 && jtag_device_ctx=="jsn-Zed-210248B849FE-23727093-0"}' command is executed.
+15:55:04 INFO  : Device configured successfully with "C:/Users/Student/vitis_workspace/ssd_ctrl/_ide/bitstream/design_1_wrapper.bit"
+15:55:04 INFO  : Context for 'APU' is selected.
+15:55:04 INFO  : Hardware design and registers information is loaded from 'C:/Users/Student/vitis_workspace/design_1_wrapper/export/design_1_wrapper/hw/design_1_wrapper.xsa'.
+15:55:04 INFO  : 'configparams force-mem-access 1' command is executed.
+15:55:04 INFO  : Context for 'APU' is selected.
+15:55:04 INFO  : Sourcing of 'C:/Users/Student/vitis_workspace/ssd_ctrl/_ide/psinit/ps7_init.tcl' is done.
+15:55:04 INFO  : 'ps7_init' command is executed.
+15:55:04 INFO  : 'ps7_post_config' command is executed.
+15:55:04 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:55:04 INFO  : The application 'C:/Users/Student/vitis_workspace/ssd_ctrl/Debug/ssd_ctrl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+15:55:04 INFO  : 'configparams force-mem-access 0' command is executed.
+15:55:04 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248B849FE" && level==0 && jtag_device_ctx=="jsn-Zed-210248B849FE-23727093-0"}
+fpga -file C:/Users/Student/vitis_workspace/ssd_ctrl/_ide/bitstream/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/Student/vitis_workspace/design_1_wrapper/export/design_1_wrapper/hw/design_1_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/Users/Student/vitis_workspace/ssd_ctrl/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/Users/Student/vitis_workspace/ssd_ctrl/Debug/ssd_ctrl.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+15:55:04 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:55:04 INFO  : 'con' command is executed.
+15:55:04 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+15:55:04 INFO  : Launch script is exported to file 'C:\Users\Student\vitis_workspace\ssd_ctrl_system\_ide\scripts\systemdebugger_ssd_ctrl_system_standalone.tcl'
+16:01:05 INFO  : Disconnected from the channel tcfchan#5.
