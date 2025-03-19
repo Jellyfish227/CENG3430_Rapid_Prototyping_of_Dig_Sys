@@ -44,19 +44,19 @@ template <typename T, int DIM>
 void mmult_hw(T a[DIM][DIM], T b[DIM][DIM], T out[DIM][DIM])
 {
 	#pragma HLS INLINE
-	//#pragma HLS array_partition variable=a block factor=<FACTOR> dim=<DIM>
-	//#pragma HLS array_partition variable=b block factor=<FACTOR> dim=<DIM>
+	#pragma HLS array_partition variable=a block factor=DIM dim=2
+	#pragma HLS array_partition variable=b block factor=DIM dim=1
 
 	// matrix multiplication of a A*B matrix
 	L1:for (int ia = 0; ia < DIM; ++ia)
-		#pragma HLS loop_flatten off
-		//#pragma HLS PIPELINE II=1
+//		#pragma HLS loop_flatten off
+//		#pragma HLS PIPELINE II=1
 		L2:for (int ib = 0; ib < DIM; ++ib)
 		{
-			//#pragma HLS PIPELINE II=1
+			#pragma HLS PIPELINE II=1
 			T sum = 0;
 			L3:for (int id = 0; id < DIM; ++id)
-				//#pragma HLS PIPELINE II=1
+				#pragma HLS PIPELINE II=1
 				sum += a[ia][id] * b[id][ib];
 			out[ia][ib] = sum;
 		}
