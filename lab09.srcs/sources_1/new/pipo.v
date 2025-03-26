@@ -1,4 +1,24 @@
-// PIPO (Parallel In Parallel Out) Shift Register Module
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 26.03.2025 12:57:12
+// Design Name: 
+// Module Name: pipo
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
 module pipo(
     input wire [3:0] D,
     input wire sel,
